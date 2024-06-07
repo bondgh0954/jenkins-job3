@@ -15,6 +15,15 @@ maven
 Create an ubuntu server on DigitalOcean
 setup and run jenkins as Docker container
 initialize jenkins
+Install build tools(maven, node) in jenkins
+Make Docker available on Jenkins server
+Create Jenkins credentials for a git repository
+create different jenkins job types(freestyle, pipeline, multibranch pipeline) for
+the java maven project with jenkinsfile to 
+  1. connet to the application git repository
+  2. Build jar
+  3. Build Docker image
+  4. push to private Dockerhub repository
 
 ## configure tools on jenkins
 install node and npm directly on server
