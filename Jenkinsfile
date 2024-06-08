@@ -18,7 +18,7 @@ pipeline {
     }
 
     stage('build Image'){
-      steps(
+      steps{
         script{
           echo 'building docker image from the application'
               withCredentials([usernamePassword(credentialsId:'dockerhub-credentials',usernameVariable:'USER',passwordVariable:'PASS')]){
@@ -27,7 +27,7 @@ pipeline {
                   sh "docker push nanaot/java-app:.2.31"
               }
         }
-      )
+      }
     }
 
   }
