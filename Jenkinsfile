@@ -1,3 +1,5 @@
+#!/user/bin/env groovy
+@library('jenkins-shared')
 def gv
 pipeline {
   agent any
@@ -19,7 +21,7 @@ pipeline {
     stage('build jar'){
       steps{
         script{
-          gv.buildJar()
+          buildJar()
         }
       }
     }
@@ -27,7 +29,7 @@ pipeline {
     stage('build Image'){
       steps{
         script{
-          gv.buildImage()
+          buildImage 'nanaot/java-app.7.9'
         }
       }
     }
