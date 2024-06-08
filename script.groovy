@@ -10,3 +10,5 @@ def buildImage(){
         sh "docker push nanaot/java-app:2.31"
     }
 }
+
+return this
