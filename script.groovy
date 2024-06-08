@@ -1,14 +1,13 @@
 def buildJar(){
-    echo 'building application jar file from the code'
+    echo 'building jar file from the application'
     sh 'mvn package'
 }
-
 def buildImage(){
-    echo "building application into docker image"
-    withCredentials([usernamePassword(credentialsId:'dockerhub-credentials',usernameVariable:'USERNAME',passwordVariable:'PASSWORD')]){
-        sh "docker build -t nanaot/java-app:pip.jb.1.0 ."
-        sh "echo $PASSWORD |docker login -u $USERNAME --password-stdin"
-        sh "docker push nanaot/java-app:pip.jb.1.0"
+    echo "building docker image from the application"
+    withCredentials([usernamePassword(credentialsId:'dockerhub-credentials',usernameVariable:"USER",passwordVariable:'PASS')]){
+        sh "docker build -t nanaot/java-app:pipelinej.2.3 ."
+        sh "echo $PASS |docker login -u $USER --password-stdin"
+        sh "docker push nanaot/java-app:pipelinej.2.3"
     }
 }
 return this
